@@ -1,0 +1,18 @@
+- scm:
+    name: git-otus-autotests
+    scm:
+    - git:
+        url: https://github.com/alexhond/otus_test.git
+        credentials-id: jenkins-otus
+        branches:
+        - FETCH_HEAD
+        refspec: ${BRANCH}
+- scm:
+    name: git-appium-autotests
+    scm:
+    - git:
+        url: https://github.com/alexhond/otus-mobile.git
+        credentials-id: jenkins-otus
+        branches:
+        - FETCH_HEAD
+        refspec: ${BRANCH}

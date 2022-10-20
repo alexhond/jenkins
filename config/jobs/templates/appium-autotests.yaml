@@ -1,0 +1,21 @@
+- job-template:
+    name: 'appium-autotests'
+    description: 'UI autotests running'
+    project-type: pipeline
+    concurrent: true
+    logrotate:
+      daysToKeep: 5
+      numToKeep: 10
+    parameters:
+      - string:
+          name: BRANCH
+          default: main
+          description: "Name of branch"
+      - string:
+          name: TAGS
+          default: smoke 
+          description: "Run tests by tags"
+    pipeline-scm:
+      scm:
+      - git-appium-autotests
+      script-path: jenkins/otus-appium-autotests.groovy

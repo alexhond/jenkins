@@ -1,0 +1,8 @@
+---
+- project:
+    name: 'Otus tests'
+    job-description: 'Ui and Appium tests'
+    jobs:
+      - 'ui-autotests'
+      - 'rest-autotests'
+      - 'appium-autotests'

@@ -1,0 +1,21 @@
+- job-template:
+    name: 'rest-autotests'
+    description: 'Running REST autotests'
+    project-type: pipeline
+    concurrent: true
+    logrotate:
+      daysToKeep: 5
+      numToKeep: 10
+    parameters:
+      - string:
+          name: BRANCH
+          default: main
+          description: "Name of branch"
+      - string:
+          name: TAGS
+          default: "@rest"
+          description: "Tags"
+    pipeline-scm:
+      scm:
+      - git-otus-autotests
+      script-path: jenkins/otus-rest-autotests.groovy

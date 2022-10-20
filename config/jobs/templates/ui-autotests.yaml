@@ -1,0 +1,33 @@
+- job-template:
+    name: 'ui-autotests'
+    description: 'UI autotests running'
+    project-type: pipeline
+    concurrent: true
+    logrotate:
+      daysToKeep: 5
+      numToKeep: 10
+    parameters:
+      - string:
+          name: BRANCH
+          default: main
+          description: "Name of branch"
+      - string:
+          name: BASE_URL
+          default: https://otus.ru
+          description: "Test url"
+      - string:
+          name: BROWSER_NAME
+          default: chrome
+          description: "Browser name"
+      - string:
+          name: BROWSER_VERSION
+          default: "103.0"
+          description: "Browser version"
+      - string:
+          name: TAGS
+          default: "@ui" 
+          description: "tags"
+    pipeline-scm:
+      scm:
+      - git-otus-autotests
+      script-path: jenkins/otus-ui-autotests.groovy
